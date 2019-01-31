@@ -8,7 +8,7 @@ from executor import execute
 def python_source_files():
     import glob
 
-    result = (glob.glob("*.py") + glob.glob("hobart/*.py"))
+    result = glob.glob("*.py") + glob.glob("hobart/*.py")
     result.remove("hobart/__init__.py")
     return result
 
