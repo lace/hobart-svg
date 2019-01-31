@@ -29,7 +29,7 @@ def horizontal_xs(mesh_path, heights, out, reference):
     """
     import os
     import numpy as np
-    import vx
+    import vg
     from lace.mesh import Mesh
     from blmath.geometry import Plane
     from .core import render_longest_xsection_to_svg
@@ -47,7 +47,7 @@ def horizontal_xs(mesh_path, heights, out, reference):
             out_path = "{}_cross_section_at_{}.svg".format(filename, height)
 
         plane = Plane(
-            point_on_plane=np.array([0.0, height, 0.0]), unit_normal=vx.basis.neg_y
+            point_on_plane=np.array([0.0, height, 0.0]), unit_normal=vg.basis.neg_y
         )
 
         xs = render_longest_xsection_to_svg(

@@ -60,15 +60,15 @@ def render_polyline_3d(
     When width or height is not provided, automatically set based on the data
     with 10% padding.
     """
-    import vx
+    import vg
     from .geometry import apply_orthographic_projection
 
     if up is None:
-        if vx.almost_collinear(look, vx.basis.y):
-            up_appx = vx.basis.neg_z
+        if vg.almost_collinear(look, vg.basis.y):
+            up_appx = vg.basis.neg_z
         else:
-            up_appx = vx.basis.y
-        up = vx.reject(up_appx, from_v=look)
+            up_appx = vg.basis.y
+        up = vg.reject(up_appx, from_v=look)
 
     canvas_points = apply_orthographic_projection(
         points=polyline.v,
