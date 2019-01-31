@@ -45,13 +45,9 @@ python -m hobart.cli horizontal-xs \
     15 30 45 60
 ```
 
-```sh
-pip install vx metabolace metablmath
-```
-
 ```py
 import numpy as np
-import vx
+import vg
 from lace.mesh import Mesh
 from blmath.geometry import Plane
 from hobart import render_longest_xsection_to_svg
@@ -60,7 +56,7 @@ mesh = Mesh(filename="mesh.obj")
 
 plane = Plane(
     point_on_plane=np.array([0.0, 30.0, 0.0]),
-    unit_normal=vx.basis.y)
+    unit_normal=vg.basis.y)
 
 render_longest_xsection_to_svg(
     mesh=mesh,
@@ -76,7 +72,7 @@ from hobart import render_longest_xsection_to_svg
 mesh = Mesh(filename="examples/vitra/vitra_without_materials.obj")
 plane = Plane(
     point_on_plane=np.array([-0.869231, 60.8882, -20.1071]),
-    unit_normal=vx.normalize(np.array([0., 0.1, -1.])))
+    unit_normal=vg.normalize(np.array([0., 0.1, -1.])))
 xs = render_longest_xsection_to_svg(
     mesh=mesh,
     plane=plane,
