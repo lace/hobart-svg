@@ -1,5 +1,5 @@
 numpy
-metabolace == 1.1.8.dev1
+metabolace ==1.2.1
 metablmath
 click >= 6.0,<7.0
 vg >= 0.4.0
