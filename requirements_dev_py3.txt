@@ -1,0 +1,6 @@
+black == 18.9b0
+pyflakes >=2.0,<3.0
+
+# Used in dev.py.
+click >= 6.0,<7.0
+executor >= 21.0

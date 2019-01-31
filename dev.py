@@ -20,7 +20,7 @@ def cli():
 
 @cli.command()
 def init():
-    execute("pip install -r requirements_dev.txt")
+    execute("pip3 install -r requirements_dev_py3.txt")
 
 
 @cli.command()
