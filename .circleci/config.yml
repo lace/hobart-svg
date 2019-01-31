@@ -1,0 +1,68 @@
+version: 2
+jobs:
+  # python2:
+  #   docker:
+  #     - image: laceproject/entente-ci-py2.7:0.2.0
+
+  #   steps:
+  #     - checkout
+
+  #     - run:
+  #         name: Show versions
+  #         command: pip freeze
+
+  #     - run:
+  #         name: Pull test assets from Git LFS
+  #         command: |
+  #           mkdir -p ~/.ssh
+  #           ssh-keyscan -H github.com >> ~/.ssh/known_hosts
+  #           ssh git@github.com git-lfs-authenticate "${CIRCLE_PROJECT_USERNAME}/${CIRCLE_PROJECT_REPONAME}" download
+  #           git lfs pull
+
+  #     - run:
+  #         name: Run tests
+  #         command: ./dev.py test
+
+  #     - run:
+  #         name: Run the doc build
+  #         command: ./dev.py doc
+
+  python3:
+    docker:
+      - image: laceproject/entente-ci-py3.6:0.2.0
+
+    steps:
+      - checkout
+
+      - run:
+          name: Show versions
+          command: pip freeze
+
+      - run:
+          name: Check lint
+          when: always
+          command: ./dev.py lint
+
+      - run:
+          name: Check code format
+          when: always
+          command: ./dev.py black-check
+
+workflows:
+  version: 2
+
+  on-commit:
+    jobs:
+      # - python2
+      - python3
+
+  daily:
+    triggers:
+      - schedule:
+          cron: "0 17 * * *"
+          filters:
+            branches:
+              only: master
+    jobs:
+      # - python2
+      - python3
