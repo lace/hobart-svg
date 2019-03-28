@@ -23,7 +23,7 @@ def main():
     import numpy as np
     import vg
     from lace.mesh import Mesh
-    from blmath.geometry import Plane
+    from polliwog import Plane
     from hobart import render_longest_xsection_to_svg
 
     mesh = Mesh(filename="examples/vitra/vitra_without_materials.obj")

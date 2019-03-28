@@ -6,7 +6,7 @@ def almost_perpendicular(v1, v2, atol=1e-8):
 
 
 def reorient_points(points, up, look):
-    from blmath.geometry.transform import rotation_from_up_and_look
+    from polliwog.transform import rotation_from_up_and_look
     from blmath.numerics import as_numeric_array
 
     up = as_numeric_array(up, (3,))
