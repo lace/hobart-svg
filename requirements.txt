@@ -1,5 +1,5 @@
 numpy
-metabolace == 1.1.8.dev1
+metabolace ==1.3.0
 polliwog
 metablmath
 click >= 7.0,<8.0
