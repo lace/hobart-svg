@@ -8,9 +8,9 @@ from executor import execute
 def python_source_files():
     import glob
 
-    result = glob.glob("*.py") + glob.glob("hobart/*.py")
-    result.remove("hobart/__init__.py")
-    return result
+    include_paths = glob.glob("*.py") + glob.glob("hobart/*.py")
+    exclude_paths = []
+    return [x for x in include_paths if x not in exclude_paths]
 
 
 @click.group()
@@ -30,7 +30,7 @@ def test():
 
 @cli.command()
 def lint():
-    execute("pyflakes", *python_source_files())
+    execute("flake8", *python_source_files())
 
 
 @cli.command()
