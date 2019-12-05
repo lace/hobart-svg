@@ -1,5 +1,5 @@
 def longest_xsection(mesh, plane):
-    xsections = plane.mesh_xsections(mesh)
+    xsections = mesh.intersect_plane(plane)
     try:
         return next(reversed(sorted(xsections, key=lambda xs: xs.total_length)))
     except StopIteration:
