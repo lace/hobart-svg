@@ -25,7 +25,7 @@ def init():
 
 @cli.command()
 def test():
-    execute("nose2")
+    execute("python3 -m pytest")
 
 
 @cli.command()
