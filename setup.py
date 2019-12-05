@@ -15,7 +15,7 @@ setup(
     long_description_content_type="text/markdown",
     author="Metabolize",
     author_email="github@paulmelnikow.com",
-    url="https://github.com/metabolize/hobart",
+    url="https://github.com/lace/hobart",
     packages=find_packages(),
     install_requires=install_requires,
     classifiers=[
