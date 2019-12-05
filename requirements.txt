@@ -1,6 +1,5 @@
 numpy
-metabolace == 1.1.8.dev1
-polliwog
-metablmath
-click >= 7.0,<8.0
-vg >= 0.4.0
+lace==5.0.0-beta.1
+polliwog==1.0.0-beta.1
+click>=7.0,<8.0
+vg>=1.5
