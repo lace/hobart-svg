@@ -1,4 +1,5 @@
 import numpy as np
+import vg
 
 
 def almost_perpendicular(v1, v2, atol=1e-8):
