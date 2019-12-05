@@ -83,7 +83,7 @@ def render_polyline_3d(
 
     return render_polyline_2d(
         points=canvas_points,
-        closed=polyline.closed,
+        closed=polyline.is_closed,
         width=canvas_width,
         height=canvas_height,
         **kwargs
