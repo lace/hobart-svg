@@ -20,7 +20,7 @@ def cli():
 
 @cli.command()
 def init():
-    execute("pip3 install -r requirements_dev_py3.txt")
+    execute("pip3 install -r requirements_dev.txt")
 
 
 @cli.command()
@@ -46,7 +46,7 @@ def black_check():
 @cli.command()
 def upload():
     execute("rm -rf dist/")
-    execute("python setup.py sdist")
+    execute("python3 setup.py sdist bdist_wheel")
     execute("twine upload dist/*")
 
 
