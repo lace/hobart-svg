@@ -8,6 +8,13 @@ jobs:
       - checkout
 
       - run:
+          name: Install container dependencies
+          command: |
+            curl -s https://packagecloud.io/install/repositories/github/git-lfs/script.deb.sh | bash
+            apt-get update
+            apt-get install -y git-lfs
+
+      - run:
           name: Install python dependencies
           command: |
             mkdir -p venv
