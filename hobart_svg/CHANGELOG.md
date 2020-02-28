@@ -1,5 +1,9 @@
 # Changelog
 
+## 0.2.2
+
+- Rename package from `hobart` to `hobart-svg`.
+
 ## 0.2.1
 
 ### Bug fixes
