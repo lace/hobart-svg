@@ -24,7 +24,7 @@ def main():
     import vg
     from lace.mesh import Mesh
     from polliwog import Plane
-    from hobart import render_longest_xsection_to_svg
+    from hobart_svg import render_longest_xsection_to_svg
 
     mesh = Mesh(filename="examples/vitra/vitra_without_materials.obj")
     plane = Plane(
