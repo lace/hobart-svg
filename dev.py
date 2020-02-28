@@ -8,7 +8,7 @@ from executor import execute
 def python_source_files():
     import glob
 
-    include_paths = glob.glob("*.py") + glob.glob("hobart/*.py")
+    include_paths = glob.glob("*.py") + glob.glob("hobart_svg/*.py")
     exclude_paths = []
     return [x for x in include_paths if x not in exclude_paths]
 

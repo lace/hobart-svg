@@ -1,18 +1,17 @@
-hobart
-======
+# hobart-svg
 
-[![version](https://img.shields.io/pypi/v/hobart.svg?style=flat-square)][pypi]
-[![license](https://img.shields.io/pypi/l/hobart.svg?style=flat-square)][pypi]
-[![build](https://img.shields.io/circleci/project/github/lace/hobart/master.svg?style=flat-square)][build]
-[![docs build](https://img.shields.io/readthedocs/hobart.svg?style=flat-square)][docs build]
-[![code style](https://img.shields.io/badge/code%20style-black-black.svg?style=flat-square)][black]
+[![version](https://img.shields.io/pypi/v/hobart-svg?style=flat-square)][pypi]
+[![license](https://img.shields.io/pypi/l/hobart-svg?style=flat-square)][pypi]
+[![build](https://img.shields.io/circleci/project/github/lace/hobart-svg/master?style=flat-square)][build]
+[![docs build](https://img.shields.io/readthedocs/hobart-svg?style=flat-square)][docs build]
+[![code style](https://img.shields.io/badge/code%20style-black-black?style=flat-square)][black]
 
 Render polygons, polylines, and mesh cross sections to SVG.
 
-[pypi]: https://pypi.org/project/hobart/
+[pypi]: https://pypi.org/project/hobart-svg/
 [black]: https://black.readthedocs.io/en/stable/
-[build]: https://circleci.com/gh/lace/hobart/tree/master
-[docs build]: https://hobart.readthedocs.io/en/latest/
+[build]: https://circleci.com/gh/lace/hobart-svg/tree/master
+[docs build]: https://hobart-svg.readthedocs.io/en/latest/
 
 
 Features
@@ -22,7 +21,7 @@ Features
   of the bounding rectangle.
 - Render cross sections of [lace][]-style polygonal meshes.
 <!--
-- Complete documentation: https://hobart.readthedocs.io/en/stable/
+- Complete documentation: https://hobart-svg.readthedocs.io/en/stable/
 -->
 
 [lace]: https://github.com/metabolize/lace
@@ -32,14 +31,14 @@ Installation
 ------------
 
 ```sh
-pip install numpy hobart
+pip install numpy hobart-svg
 ```
 
 Usage
 -----
 
 ```sh
-python -m hobart.cli horizontal-xs \
+python -m hobart_svg.cli horizontal-xs \
     --reference vitra_with_xs.dae \
     examples/vitra/vitra_without_materials.obj \
     15 30 45 60
@@ -50,7 +49,7 @@ import numpy as np
 import vg
 from lace.mesh import Mesh
 from polliwog import Plane
-from hobart import render_longest_xsection_to_svg
+from hobart_svg import render_longest_xsection_to_svg
 
 mesh = Mesh(filename="mesh.obj")
 
@@ -67,7 +66,7 @@ render_longest_xsection_to_svg(
 ```py
 from lace.mesh import Mesh
 from polliwog import Plane
-from hobart import render_longest_xsection_to_svg
+from hobart_svg import render_longest_xsection_to_svg
 
 mesh = Mesh(filename="examples/vitra/vitra_without_materials.obj")
 plane = Plane(
@@ -86,8 +85,8 @@ mesh.write("vitra_with_cross_section.dae")
 Contribute
 ----------
 
-- Issue Tracker: https://github.com/lace/hobart/issues
-- Source Code: https://github.com/lace/hobart
+- Issue Tracker: https://github.com/lace/hobart-svg/issues
+- Source Code: https://github.com/lace/hobart-svg
 
 Pull requests welcome!
 
