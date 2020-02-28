@@ -8,14 +8,14 @@ with open("requirements.txt") as f:
     install_requires = f.read()
 
 setup(
-    name="hobart",
-    version=importlib.import_module("hobart").__version__,
+    name="hobart-svg",
+    version=importlib.import_module("hobart_svg").__version__,
     description="Render polygons, polylines, and mesh cross sections to SVG",
     long_description=readme,
     long_description_content_type="text/markdown",
     author="Metabolize",
     author_email="github@paulmelnikow.com",
-    url="https://github.com/lace/hobart",
+    url="https://github.com/lace/hobart-svg",
     packages=find_packages(),
     install_requires=install_requires,
     classifiers=[
