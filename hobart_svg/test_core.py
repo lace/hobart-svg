@@ -1,7 +1,7 @@
-import numpy as np
-import vg
 from lace.mesh import Mesh
+import numpy as np
 from polliwog import Plane
+import vg
 from .core import render_longest_xsection_to_svg
 
 
