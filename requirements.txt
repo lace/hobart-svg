@@ -1,6 +1,7 @@
 hobart==1.0.0b1
 numpy
-lacecore[obj]==0.4.0
+# lacecore[obj]==0.4.0
+lacecore[obj] @ git+https://github.com/lace/lacecore.git@28de5776c68f42a0315a65730c96f57372297098
 polliwog==1.0.0b8
 click>=7.0,<8.0
 vg>=1.5
