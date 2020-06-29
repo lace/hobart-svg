@@ -28,16 +28,17 @@ def horizontal_xs(mesh_path, heights, out, reference):
     section.
     """
     import os
+    import lacecore
     import numpy as np
-    import vg
-    from lace.mesh import Mesh
     from polliwog import Plane
+    from tri_again import Scene
+    import vg
     from .core import render_longest_xsection_to_svg
 
     if reference and not reference.endswith(".dae"):
         raise ValueError("reference-mesh should end with .dae")
 
-    mesh = Mesh(filename=mesh_path)
+    mesh = lacecore.load_obj(mesh_path, triangulate=True)
 
     reference_lines = []
 
@@ -57,8 +58,7 @@ def horizontal_xs(mesh_path, heights, out, reference):
         reference_lines.append(xs)
 
     if reference:
-        mesh.add_lines(reference_lines)
-        mesh.write(reference)
+        Scene().add_meshes(mesh).add_lines(*reference_lines).write(reference)
 
 
 if __name__ == "__main__":

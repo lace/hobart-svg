@@ -1,5 +1,5 @@
 numpy
-lace==5.0.0-beta.1
+lacecore[obj]==0.3.0
 polliwog==1.0.0b6
 click>=7.0,<8.0
 vg>=1.5

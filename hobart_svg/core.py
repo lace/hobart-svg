@@ -20,13 +20,15 @@ def render_longest_xsection_to_svg(mesh, plane, filename, look=None, **kwargs):
 
 
 def main():
+    import lacecore
     import numpy as np
-    import vg
-    from lace.mesh import Mesh
+    from tri_again import Scene
     from polliwog import Plane
-    from hobart_svg import render_longest_xsection_to_svg
+    import vg
 
-    mesh = Mesh(filename="examples/vitra/vitra_without_materials.obj")
+    mesh = lacecore.load_obj(
+        "examples/vitra/vitra_without_materials.obj", triangulate=True
+    )
     plane = Plane(
         point_on_plane=np.array([-0.869231, 60.8882, -20.1071]),
         unit_normal=vg.normalize(np.array([0.0, 0.1, -1.0])),
@@ -35,8 +37,7 @@ def main():
         mesh=mesh, plane=plane, filename="vitra_cross_section.svg"
     )
 
-    mesh.add_lines([xs])
-    mesh.write("vitra_with_cross_section.dae")
+    Scene().add_mesh(mesh).add_lines(xs).write("vitra_with_cross_section.dae")
 
 
 if __name__ == "__main__":
