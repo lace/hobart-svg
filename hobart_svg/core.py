@@ -37,7 +37,7 @@ def main():
         mesh=mesh, plane=plane, filename="vitra_cross_section.svg"
     )
 
-    Scene().add_mesh(mesh).add_lines(xs).write("vitra_with_cross_section.dae")
+    Scene().add_meshes(mesh).add_lines(xs).write("vitra_with_cross_section.dae")
 
 
 if __name__ == "__main__":
