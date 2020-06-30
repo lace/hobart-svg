@@ -1,5 +1,10 @@
 # Changelog
 
+## 0.3.0
+
+- Migrate from lace to lacecore.
+- Bump polliwog to 1.0.0b10.
+
 ## 0.2.2
 
 - Rename package from `hobart` to `hobart-svg`.
