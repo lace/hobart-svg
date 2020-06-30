@@ -12,7 +12,7 @@ jobs:
           command: |
             curl -s https://packagecloud.io/install/repositories/github/git-lfs/script.deb.sh | sudo bash
             sudo apt-get update
-            sudo apt-get install -qq -y git-lfs libsuitesparse-dev libboost-dev
+            sudo apt-get install -qq -y git-lfs
 
       - run:
           name: Install python dependencies

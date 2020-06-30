@@ -19,19 +19,19 @@ Features
 
 - Render 2D and 3D polygons and polylines to SVG, with automatic computation
   of the bounding rectangle.
-- Render cross sections of [lace][]-style polygonal meshes.
+- Render cross sections of [lacecore][]-style polygonal meshes.
 <!--
 - Complete documentation: https://hobart-svg.readthedocs.io/en/stable/
 -->
 
-[lace]: https://github.com/metabolize/lace
+[lacecore]: https://github.com/lace/lacecore
 
 
 Installation
 ------------
 
 ```sh
-pip install numpy hobart-svg
+pip install hobart-svg
 ```
 
 Usage
@@ -45,13 +45,13 @@ python -m hobart_svg.cli horizontal-xs \
 ```
 
 ```py
-import numpy as np
-import vg
-from lace.mesh import Mesh
-from polliwog import Plane
 from hobart_svg import render_longest_xsection_to_svg
+import lacecore
+import numpy as np
+from polliwog import Plane
+import vg
 
-mesh = Mesh(filename="mesh.obj")
+mesh = lacecore.load_obj(filename="mesh.obj", triangulate=True)
 
 plane = Plane(
     point_on_plane=np.array([0.0, 30.0, 0.0]),
@@ -64,11 +64,15 @@ render_longest_xsection_to_svg(
 ```
 
 ```py
-from lace.mesh import Mesh
-from polliwog import Plane
 from hobart_svg import render_longest_xsection_to_svg
+import lacecore
+from polliwog import Plane
+from tri_again import Scene
 
-mesh = Mesh(filename="examples/vitra/vitra_without_materials.obj")
+mesh = lacecore.load_obj(
+    filename="examples/vitra/vitra_without_materials.obj",
+    triangulate=True
+)
 plane = Plane(
     point_on_plane=np.array([-0.869231, 60.8882, -20.1071]),
     unit_normal=vg.normalize(np.array([0., 0.1, -1.])))
@@ -77,8 +81,7 @@ xs = render_longest_xsection_to_svg(
     plane=plane,
     filename="vitra_cross_section.svg")
 
-mesh.add_lines([xs])
-mesh.write("vitra_with_cross_section.dae")
+Scene().add_meshes(mesh).add_lines(xs).write("vitra_with_cross_section.dae")
 ```
 
 
