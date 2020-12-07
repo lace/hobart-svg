@@ -18,7 +18,7 @@ setup(
     author_email="github@paulmelnikow.com",
     url="https://github.com/lace/hobart-svg",
     packages=find_packages(),
-    python_requires=[">=3.6", "<3.9"],
+    python_requires=">=3.6, <3.9",
     install_requires=load("requirements.txt"),
     classifiers=[
         "Development Status :: 2 - Pre-Alpha",
