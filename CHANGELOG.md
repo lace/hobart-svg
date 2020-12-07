@@ -1,5 +1,9 @@
 # Changelog
 
+## 0.4.1
+
+- Fix issue where dependencies were omitted from 0.4.0.
+
 ## 0.4.0
 
 - Bump lacecore
