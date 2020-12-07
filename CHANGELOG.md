@@ -1,5 +1,10 @@
 # Changelog
 
+## 0.4.0
+
+- Bump lacecore
+- Note incompatibility with Python 3.9.
+
 ## 0.3.0
 
 - Migrate from lace to lacecore.
