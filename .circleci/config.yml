@@ -2,7 +2,7 @@ version: 2
 jobs:
   python3:
     docker:
-      - image: circleci/python:3
+      - image: circleci/python:3.8
 
     steps:
       - checkout
@@ -10,7 +10,6 @@ jobs:
       - run:
           name: Install container dependencies
           command: |
-            curl -s https://packagecloud.io/install/repositories/github/git-lfs/script.deb.sh | sudo bash
             sudo apt-get update
             sudo apt-get install -qq -y git-lfs
 
@@ -20,7 +19,6 @@ jobs:
             mkdir -p venv
             virtualenv venv
             . venv/bin/activate
-            set -o pipefail; pip install numpy | cat
             set -o pipefail; pip install --upgrade -r requirements_dev.txt | cat
 
       - run:
