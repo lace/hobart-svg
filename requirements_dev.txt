@@ -9,5 +9,5 @@ flake8-import-order >=0.18.1,<0.19
 pytest ==6.1.2
 
 # Used in dev.py.
-click >= 7.0,<8.0
+click >= 7.0,< 9.0
 executor >= 21.0
