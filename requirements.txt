@@ -1,4 +1,4 @@
-hobart==1.0.0b1
+hobart==1.0.0b2
 numpy
 lacecore[obj]==0.5.0
 polliwog==1.0.0b10
