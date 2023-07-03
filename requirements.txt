@@ -1,6 +1,6 @@
 hobart==1.0.0b1
 numpy
-lacecore[obj]==0.5.0
+lacecore[obj]==2.4.3
 polliwog==1.0.0b10
 click>=7.0,<8.0
 vg>=1.5
