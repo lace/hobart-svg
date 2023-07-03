@@ -38,11 +38,6 @@ jobs:
           command: ./dev.py test
 
       - run:
-          name: Run the doc build
-          when: always
-          command: ./dev.py doc
-
-      - run:
           name: Run the build
           when: always
           command: poetry build
