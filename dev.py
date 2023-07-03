@@ -1,4 +1,4 @@
-#!/usr/bin/env python3
+#!/usr/bin/env -S poetry run python
 
 import os
 import click
@@ -19,13 +19,13 @@ def cli():
 
 
 @cli.command()
-def init():
-    execute("pip3 install -r requirements_dev.txt")
+def install():
+    execute("poetry install --sync")
 
 
 @cli.command()
 def test():
-    execute("python3 -m pytest")
+    execute("python -m pytest")
 
 
 @cli.command()
@@ -46,7 +46,7 @@ def black_check():
 @cli.command()
 def publish():
     execute("rm -rf dist/")
-    execute("python3 setup.py sdist bdist_wheel")
+    execute("poetry build")
     execute("twine upload dist/*")
 
 

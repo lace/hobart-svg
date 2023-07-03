@@ -1,67 +1,93 @@
-version: 2
+version: 2.1
+
+with_python: &with_python
+  docker:
+    - image: circleci/python:3.7
+
+install_poetry: &install_poetry
+  run:
+    name: Install Poetry
+    command: |
+      pip install poetry==1.1.7
+      poetry --version
+
+install_python_deps: &install_python_deps
+  run:
+    name: Install python dependencies
+    command: poetry install --no-ansi --no-interaction
+
+show_versions: &show_versions
+  run:
+    name: Show versions
+    command: poetry show
+
 jobs:
-  python3:
-    docker:
-      - image: circleci/python:3.8
+  main:
+    <<: *with_python
 
     steps:
       - checkout
 
-      - run:
-          name: Install container dependencies
-          command: |
-            sudo apt-get update
-            sudo apt-get install -qq -y git-lfs
-
-      - run:
-          name: Install python dependencies
-          command: |
-            mkdir -p venv
-            virtualenv venv
-            . venv/bin/activate
-            set -o pipefail; pip install --upgrade -r requirements_dev.txt | cat
-
-      - run:
-          name: Show versions
-          command: |
-            . venv/bin/activate
-            pip freeze
-
-      - run:
-          name: Pull test assets from Git LFS
-          command: |
-            mkdir -p ~/.ssh
-            ssh-keyscan -H github.com >> ~/.ssh/known_hosts
-            ssh git@github.com git-lfs-authenticate "${CIRCLE_PROJECT_USERNAME}/${CIRCLE_PROJECT_REPONAME}" download
-            git lfs pull
+      - *install_poetry
+      - *install_python_deps
+      - *show_versions
 
       - run:
           name: Run tests
           when: always
-          command: |
-            . venv/bin/activate
-            ./dev.py test
+          command: ./dev.py test
+
+      - run:
+          name: Run the doc build
+          when: always
+          command: ./dev.py doc
+
+      - run:
+          name: Run the build
+          when: always
+          command: poetry build
+
+      - store_artifacts:
+          path: dist
+
+  lint:
+    <<: *with_python
+
+    steps:
+      - checkout
+
+      - *install_poetry
+      - *install_python_deps
+      - *show_versions
 
       - run:
           name: Check lint
           when: always
-          command: |
-            . venv/bin/activate
-            ./dev.py lint
+          command: ./dev.py lint
+
+  format:
+    <<: *with_python
+
+    steps:
+      - checkout
+
+      - *install_poetry
+      - *install_python_deps
+      - *show_versions
 
       - run:
           name: Check code format
           when: always
-          command: |
-            . venv/bin/activate
-            ./dev.py black-check
+          command: ./dev.py black-check
 
 workflows:
   version: 2
 
   on-commit:
     jobs:
-      - python3
+      - main
+      - lint
+      - format
 
   daily:
     triggers:
@@ -69,6 +95,8 @@ workflows:
           cron: "0 17 * * *"
           filters:
             branches:
-              only: master
+              only: main
     jobs:
-      - python3
+      - main
+      - lint
+      - format

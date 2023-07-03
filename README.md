@@ -84,20 +84,16 @@ xs = render_longest_xsection_to_svg(
 Scene().add_meshes(mesh).add_lines(xs).write("vitra_with_cross_section.dae")
 ```
 
+## Development
 
-Contribute
-----------
+First, [install Poetry][].
 
-- Issue Tracker: https://github.com/lace/hobart-svg/issues
-- Source Code: https://github.com/lace/hobart-svg
+After cloning the repo, run `./bootstrap.zsh` to initialize a virtual
+environment with the project's dependencies.
 
-Pull requests welcome!
+Subsequently, run `./dev.py install` to update the dependencies.
 
-
-Support
--------
-
-If you are having issues, please let us know.
+[install poetry]: https://python-poetry.org/docs/#installatio
 
 
 License
