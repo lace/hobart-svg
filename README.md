@@ -54,8 +54,9 @@ import vg
 mesh = lacecore.load_obj(filename="mesh.obj", triangulate=True)
 
 plane = Plane(
-    point_on_plane=np.array([0.0, 30.0, 0.0]),
-    unit_normal=vg.basis.y)
+    reference_point=np.array([0.0, 30.0, 0.0]),
+    normal=vg.basis.y
+)
 
 render_longest_xsection_to_svg(
     mesh=mesh,
@@ -74,12 +75,14 @@ mesh = lacecore.load_obj(
     triangulate=True
 )
 plane = Plane(
-    point_on_plane=np.array([-0.869231, 60.8882, -20.1071]),
-    unit_normal=vg.normalize(np.array([0., 0.1, -1.])))
+    reference_point=np.array([-0.869231, 60.8882, -20.1071]),
+    normal=vg.normalize(np.array([0., 0.1, -1.]))
+)
 xs = render_longest_xsection_to_svg(
     mesh=mesh,
     plane=plane,
-    filename="vitra_cross_section.svg")
+    filename="vitra_cross_section.svg"
+)
 
 Scene().add_meshes(mesh).add_lines(xs).write("vitra_with_cross_section.dae")
 ```
