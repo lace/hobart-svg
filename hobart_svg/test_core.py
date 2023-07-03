@@ -11,8 +11,8 @@ def test_render_longest_xsection_to_svg():
         "examples/vitra/vitra_without_materials.obj", triangulate=True
     )
     plane = Plane(
-        point_on_plane=np.array([-0.869231, 60.8882, -20.1071]),
-        unit_normal=vg.normalize(np.array([0.0, 0.1, -1.0])),
+        reference_point=np.array([-0.869231, 60.8882, -20.1071]),
+        normal=vg.normalize(np.array([0.0, 0.1, -1.0])),
     )
     xs = render_longest_xsection_to_svg(
         mesh=mesh, plane=plane, filename="vitra_cross_section.svg"

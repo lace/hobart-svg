@@ -48,7 +48,7 @@ def horizontal_xs(mesh_path, heights, out, reference):
             out_path = "{}_cross_section_at_{}.svg".format(filename, height)
 
         plane = Plane(
-            point_on_plane=np.array([0.0, height, 0.0]), unit_normal=vg.basis.neg_y
+            reference_point=np.array([0.0, height, 0.0]), normal=vg.basis.neg_y
         )
 
         xs = render_longest_xsection_to_svg(
