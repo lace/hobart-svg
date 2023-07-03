@@ -1,6 +1,6 @@
 -r requirements.txt
 
-pycollada==0.7.1
+pycollada==0.7.2
 
 black ==20.8b1
 flake8 >=3.7.7,<4.0
