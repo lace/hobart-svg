@@ -17,13 +17,17 @@ classifiers = [
     "Operating System :: OS Independent",
 ]
 
+[tool.poetry.scripts]
+hobart_svg = "hobart_svg.cli:cli"
+
 [tool.poetry.dependencies]
 python = ">=3.9,<4"
 click = ">=8.1.3,<9.0"
 hobart = "1.1.1"
-lacecore = {version= "3.0.0a2", extras = ["obj"]}
+lacecore = {version = "3.0.0a2", extras = ["obj"]}
+missouri = "0.1.0"
 numpy = "*"
-polliwog = "3.0.0a8"
+polliwog = {version = "3.0.0a8", extras = ["serialization"]}
 svgwrite = ">=1.3.1, <2.0"
 tri-again = "2.0.0a0"
 vg = ">=2.0"
