@@ -1,6 +1,6 @@
 [tool.poetry]
 name = "hobart_svg"
-version = "0.4.1"
+version = "1.0.0a0"
 description = "Render polygons, polylines, and mesh cross sections to SVG"
 authors = ["Metabolize LLC"]
 license = "BSD-2-Clause"

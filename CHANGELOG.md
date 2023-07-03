@@ -1,5 +1,10 @@
 # Changelog
 
+## 1.0.0a0
+
+- Require Python 3.9+
+- Update dependencies
+
 ## 0.4.1
 
 - Fix issue where dependencies were omitted from 0.4.0.
