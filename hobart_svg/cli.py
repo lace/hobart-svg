@@ -63,9 +63,12 @@ def horizontal_xs(mesh_path, heights, out, reference):
 
 @cli.command()
 @click.argument("measured_body_json_path")
+@click.option(
+    "--up", type=click.Choice(["x", "y", "z", "neg_z", "neg_y", "neg_z"]), help="Up vector"
+)
 @click.option("--flip", is_flag=True, help="Flip the output relative to the plane")
 @click.option("-o", "--out", help="Output path")
-def measured_body(measured_body_json_path, out, flip):
+def measured_body(measured_body_json_path, out, up, flip):
     """
     Find the horizontal cross section at the given height and write it to an
     SVG file. Optionally write a COLLADA reference with the mesh and cross
@@ -109,7 +112,12 @@ def measured_body(measured_body_json_path, out, flip):
             else:
                 out = f"{filename}_{measurement_name}.svg"
 
-        write_polyline_3d(polyline=curve, filename=out, look=plane.normal)
+        write_polyline_3d(
+            polyline=curve,
+            filename=out,
+            look=plane.normal,
+            up=None if up is None else getattr(vg.basis, up),
+        )
 
 
 if __name__ == "__main__":
